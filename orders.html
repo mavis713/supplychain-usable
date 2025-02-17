@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食品供应链系统 - 订单处理</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">食品供应链系统</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">产品中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">系统功能</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="report-hero py-5">
+        <div class="container">
+            <div class="text-center animate__animated animate__fadeIn">
+                <h1 class="display-4 mb-4">订单处理系统</h1>
+                <p class="lead mb-0">高效订单管理与追踪</p>
+                <div class="tech-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 订单统计 -->
+    <section class="order-stats py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="stat-item">
+                        <h3>156</h3>
+                        <p>今日新订单</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="stat-item">
+                        <h3>45</h3>
+                        <p>待处理订单</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="stat-item">
+                        <h3>89%</h3>
+                        <p>准时交付率</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="stat-item">
+                        <h3>12</h3>
+                        <p>异常订单</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 订单处理功能 -->
+    <section class="order-functions py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <!-- 订单搜索 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="fas fa-search me-2"></i>订单查询</h4>
+                            <form>
+                                <div class="mb-3">
+                                    <label class="form-label">订单编号</label>
+                                    <input type="text" class="form-control">
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">订单状态</label>
+                                    <select class="form-select">
+                                        <option>全部状态</option>
+                                        <option>待确认</option>
+                                        <option>处理中</option>
+                                        <option>已完成</option>
+                                        <option>已取消</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">日期范围</label>
+                                    <div class="row">
+                                        <div class="col">
+                                            <input type="date" class="form-control">
+                                        </div>
+                                        <div class="col">
+                                            <input type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">查询</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 快速操作 -->
+                <div class="col-md-6 mb-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title"><i class="fas fa-bolt me-2"></i>快速操作</h4>
+                            <div class="row g-3">
+                                <div class="col-6">
+                                    <button class="btn btn-outline-primary w-100" data-bs-toggle="modal" data-bs-target="#newOrderModal">
+                                        <i class="fas fa-plus me-2"></i>新建订单
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-success w-100" data-bs-toggle="modal" data-bs-target="#batchExportModal">
+                                        <i class="fas fa-file-export me-2"></i>批量导出
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-warning w-100" data-bs-toggle="modal" data-bs-target="#delayRequestModal">
+                                        <i class="fas fa-clock me-2"></i>延期申请
+                                    </button>
+                                </div>
+                                <div class="col-6">
+                                    <button class="btn btn-outline-danger w-100" data-bs-toggle="modal" data-bs-target="#exceptionHandleModal">
+                                        <i class="fas fa-exclamation-circle me-2"></i>异常处理
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 订单列表 -->
+    <section class="orders-list py-5">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">订单列表</h4>
+                    <!-- 数据加载状态 -->
+                    <div id="loadingState" class="text-center py-5">
+                        <div class="spinner-border text-primary mb-3" role="status">
+                            <span class="visually-hidden">加载中...</span>
+                        </div>
+                        <p class="text-muted">正在加载订单数据...</p>
+                    </div>
+                    
+                    <!-- 订单表格 - 默认隐藏 -->
+                    <div id="orderTableContainer" class="table-responsive" style="display: none;">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>订单编号</th>
+                                    <th>客户名称</th>
+                                    <th>订单金额</th>
+                                    <th>下单时间</th>
+                                    <th>交付时间</th>
+                                    <th>状态</th>
+                                    <th>操作</th>
+                                </tr>
+                            </thead>
+                            <tbody id="orderTableBody">
+                                <!-- 订单数据将通过JavaScript动态加载 -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- 无数据状态 -->
+                    <div id="noDataState" class="text-center py-5" style="display: none;">
+                        <p class="text-muted">暂无订单数据</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部信息 -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>联系我们</h5>
+                    <p>电话：123-456-7890</p>
+                    <p>邮箱：info@example.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>地址</h5>
+                    <p>中国上海市浦东新区xxx路xxx号</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>关注我们</h5>
+                    <div class="social-links">
+                        <!-- 社交媒体链接 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- 新建订单模态框 -->
+    <div class="modal fade" id="newOrderModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">新建订单</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form id="newOrderForm">
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">订单编号</label>
+                                <input type="text" class="form-control" value="系统将自动生成" readonly disabled>
+                                <small class="text-muted">系统将自动生成完整订单编号</small>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">客户名称</label>
+                                <input type="text" class="form-control" id="customerName" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label class="form-label">联系电话</label>
+                                <input type="tel" class="form-control" id="customerPhone" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">商品清单</label>
+                            <div class="product-list" id="productList">
+                                <div class="row mb-2 product-item">
+                                    <div class="col-4">
+                                        <input type="text" class="form-control" placeholder="商品名称" required>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" class="form-control" placeholder="数量" required>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" class="form-control" placeholder="单价" required>
+                                    </div>
+                                    <div class="col-2">
+                                        <button type="button" class="btn btn-outline-danger btn-sm" onclick="removeProduct(this)">
+                                            删除
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="text-end mt-3">
+                                <button type="button" class="btn btn-outline-primary" onclick="addProduct()">
+                                    添加商品
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" id="submitOrderBtn">提交订单</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 延期申请模态框 -->
+    <div class="modal fade" id="delayRequestModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">延期申请</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">订单编号</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">延期原因</label>
+                            <select class="form-select" required>
+                                <option value="">请选择延期原因</option>
+                                <option value="1">供应商延迟</option>
+                                <option value="2">物流延误</option>
+                                <option value="3">天气原因</option>
+                                <option value="4">其他原因</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">预计延期天数</label>
+                            <input type="number" class="form-control" min="1" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">备注说明</label>
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-warning">提交申请</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 异常处理模态框 -->
+    <div class="modal fade" id="exceptionHandleModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">异常处理</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label class="form-label">异常订单编号</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">异常类型</label>
+                            <select class="form-select" required>
+                                <option value="">请选择异常类型</option>
+                                <option value="1">商品质量问题</option>
+                                <option value="2">数量不符</option>
+                                <option value="3">配送异常</option>
+                                <option value="4">其他问题</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">处理方案</label>
+                            <select class="form-select" required>
+                                <option value="">请选择处理方案</option>
+                                <option value="1">退货退款</option>
+                                <option value="2">补发商品</option>
+                                <option value="3">部分退款</option>
+                                <option value="4">其他方案</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label">处理说明</label>
+                            <textarea class="form-control" rows="3" required></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-danger">提交处理</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加订单成功提示模态框 -->
+    <div class="modal fade" id="orderSuccessModal" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">订单提交成功</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <div class="mb-4">
+                        <h4>您的订单已成功提交</h4>
+                        <div class="order-info mt-3">
+                            <p class="text-muted mb-2">订单编号：</p>
+                            <h3 class="text-primary mb-3" id="successOrderNumber"></h3>
+                            <p class="text-muted mb-2">订单金额：</p>
+                            <h4 class="text-success" id="successOrderAmount"></h4>
+                        </div>
+                    </div>
+                    <div class="alert alert-warning">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <div>
+                            <p class="mb-2">请妥善保存以下信息：</p>
+                            <ul class="text-start mb-0">
+                                <li>订单编号用于查询订单状态</li>
+                                <li>预计送达时间：3个工作日内</li>
+                                <li>如需帮助请联系客服：185 1689 2578</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">关闭</button>
+                    <button type="button" class="btn btn-primary" onclick="window.print()">打印订单</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加JavaScript代码 -->
+    <script>
+        // 订单编号生成器
+        class OrderNumberGenerator {
+            constructor(prefix = 'YKP') {
+                this.prefix = prefix;
+                this.currentNumber = 0;
+                this.currentDate = this.getFormattedDate();
+            }
+        
+            getFormattedDate() {
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const day = String(now.getDate()).padStart(2, '0');
+                return `${year}${month}${day}`;
+            }
+        
+            generateOrderNumber() {
+                const currentDate = this.getFormattedDate();
+                
+                // 如果日期变化，重置流水号
+                if (currentDate !== this.currentDate) {
+                    this.currentNumber = 0;
+                    this.currentDate = currentDate;
+                }
+                
+                this.currentNumber++;
+                // 生成4位流水号
+                const serialNumber = String(this.currentNumber).padStart(4, '0');
+                return `${this.prefix}${this.currentDate}${serialNumber}`;
+            }
+        }
+        
+        const orderNumberGenerator = new OrderNumberGenerator();
+        
+        // 添加商品行
+        function addProduct() {
+            const productList = document.getElementById('productList');
+            const newProduct = document.createElement('div');
+            newProduct.className = 'row mb-2 product-item';
+            newProduct.innerHTML = `
+                <div class="col-4">
+                    <input type="text" class="form-control" placeholder="商品名称" required>
+                </div>
+                <div class="col-3">
+                    <input type="number" class="form-control" placeholder="数量" required>
+                </div>
+                <div class="col-3">
+                    <input type="text" class="form-control" placeholder="单价" required>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-outline-danger btn-sm" onclick="removeProduct(this)">
+                        删除
+                    </button>
+                </div>
+            `;
+            productList.appendChild(newProduct);
+        }
+        
+        // 删除商品行
+        function removeProduct(button) {
+            const productItem = button.closest('.product-item');
+            // 确保至少保留一行商品
+            const productList = document.getElementById('productList');
+            if (productList.children.length > 1) {
+                productItem.remove();
+            } else {
+                alert('订单至少需要一个商品');
+            }
+        }
+        
+        // 订单数据存储管理
+        const OrderStorage = {
+            // 保存订单数据
+            saveOrder: function(orderData) {
+                try {
+                    // 获取现有订单数据
+                    let orders = this.getAllOrders();
+                    // 添加新订单
+                    orders.unshift(orderData);
+                    // 保存到本地存储
+                    localStorage.setItem('orders', JSON.stringify(orders));
+                    // 保存客户信息
+                    this.saveCustomerInfo(orderData.customerInfo);
+                    return true;
+                } catch (error) {
+                    console.error('保存订单失败:', error);
+                    return false;
+                }
+            },
+            
+            // 保存客户信息
+            saveCustomerInfo: function(customerInfo) {
+                try {
+                    let customers = this.getAllCustomers();
+                    // 检查客户是否已存在
+                    const existingIndex = customers.findIndex(c => c.phone === customerInfo.phone);
+                    if (existingIndex >= 0) {
+                        // 更新现有客户信息
+                        customers[existingIndex] = {
+                            ...customers[existingIndex],
+                            ...customerInfo,
+                            updateTime: new Date().toISOString()
+                        };
+                    } else {
+                        // 添加新客户
+                        customers.push({
+                            ...customerInfo,
+                            createTime: new Date().toISOString(),
+                            updateTime: new Date().toISOString()
+                        });
+                    }
+                    localStorage.setItem('customers', JSON.stringify(customers));
+                } catch (error) {
+                    console.error('保存客户信息失败:', error);
+                }
+            },
+            
+            // 获取所有订单
+            getAllOrders: function() {
+                const orders = localStorage.getItem('orders');
+                return orders ? JSON.parse(orders) : [];
+            },
+            
+            // 获取所有客户
+            getAllCustomers: function() {
+                const customers = localStorage.getItem('customers');
+                return customers ? JSON.parse(customers) : [];
+            },
+            
+            // 根据订单编号获取订单
+            getOrderByNumber: function(orderNumber) {
+                const orders = this.getAllOrders();
+                return orders.find(order => order.orderNumber === orderNumber);
+            }
+        };
+        
+        // 提交订单按钮点击事件
+        document.getElementById('submitOrderBtn').addEventListener('click', function() {
+            const form = document.getElementById('newOrderForm');
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+            
+            // 获取表单数据
+            const customerName = document.getElementById('customerName').value;
+            const customerPhone = document.getElementById('customerPhone').value;
+            
+            // 验证必填字段
+            if (!customerName || !customerPhone) {
+                alert('请填写完整的客户信息');
+                return;
+            }
+            
+            // 计算订单总金额
+            let totalAmount = 0;
+            const productDetails = [];
+            
+            // 收集商品信息
+            document.querySelectorAll('.product-item').forEach(item => {
+                const inputs = item.querySelectorAll('input');
+                const product = {
+                    name: inputs[0].value,
+                    quantity: parseInt(inputs[1].value),
+                    price: parseFloat(inputs[2].value),
+                    subtotal: parseInt(inputs[1].value) * parseFloat(inputs[2].value)
+                };
+                totalAmount += product.subtotal;
+                productDetails.push(product);
+            });
+            
+            // 生成订单编号
+            const orderNumber = orderNumberGenerator.generateOrderNumber();
+            
+            // 获取当前时间
+            const now = new Date();
+            
+            // 构建完整的订单数据
+            const orderData = {
+                orderNumber: orderNumber,
+                customerInfo: {
+                    name: customerName,
+                    phone: customerPhone,
+                    createTime: now.toISOString()
+                },
+                orderDetails: {
+                    products: productDetails,
+                    totalAmount: totalAmount,
+                    status: '待处理',
+                    createTime: now.toISOString(),
+                    expectedDeliveryTime: new Date(now.setDate(now.getDate() + 3)).toISOString()
+                },
+                orderHistory: [{
+                    action: '创建订单',
+                    time: now.toISOString(),
+                    operator: '系统',
+                    remark: '订单创建成功'
+                }]
+            };
+            
+            // 构建完整的订单数据后，保存订单信息
+            new Promise((resolve) => {
+                setTimeout(() => {
+                    // 保存订单和客户信息
+                    const saved = OrderStorage.saveOrder(orderData);
+                    if (!saved) {
+                        throw new Error('保存订单失败');
+                    }
+                    resolve({ 
+                        success: true, 
+                        data: orderData 
+                    });
+                }, 1000);
+            })
+            .then(data => {
+                if (data.success) {
+                    // 关闭新建订单模态框
+                    const newOrderModal = bootstrap.Modal.getInstance(document.getElementById('newOrderModal'));
+                    newOrderModal.hide();
+                    
+                    // 显示成功提示模态框
+                    document.getElementById('successOrderNumber').textContent = orderNumber;
+                    document.getElementById('successOrderAmount').textContent = `¥${totalAmount.toLocaleString()}`;
+                    const successModal = new bootstrap.Modal(document.getElementById('orderSuccessModal'));
+                    successModal.show();
+                    
+                    // 重置表单
+                    form.reset();
+                    
+                    // 更新订单列表显示
+                    const orders = OrderStorage.getAllOrders();
+                    displayOrders(orders);
+                    
+                    // 记录订单创建日志
+                    console.log('订单创建成功:', orderData);
+                    console.log('所有订单:', OrderStorage.getAllOrders());
+                    console.log('所有客户:', OrderStorage.getAllCustomers());
+                } else {
+                    alert('订单提交失败：' + data.message);
+                }
+            })
+            .catch(error => {
+                console.error('提交订单失败:', error);
+                alert('提交订单时发生错误，请重试');
+            });
+        });
+        
+        function fetchOrderData() {
+            // 这里应该是实际的API调用
+            // 示例：从后端获取订单数据
+            fetch('/api/orders')
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.length > 0) {
+                        displayOrders(data);
+                    } else {
+                        showNoData();
+                    }
+                })
+                .catch(error => {
+                    console.error('获取订单数据失败:', error);
+                    showNoData();
+                });
+        }
+        
+        function displayOrders(orders) {
+            const tableBody = document.getElementById('orderTableBody');
+            document.getElementById('orderTableContainer').style.display = 'block';
+            
+            // 清空现有数据
+            tableBody.innerHTML = '';
+            
+            // 添加新数据
+            orders.forEach(order => {
+                const row = `
+                    <tr>
+                        <td>${order.orderNumber}</td>
+                        <td>${order.customerName}</td>
+                        <td>¥${order.amount.toLocaleString()}</td>
+                        <td>${formatDate(order.orderDate)}</td>
+                        <td>${formatDate(order.deliveryDate)}</td>
+                        <td><span class="badge bg-${getStatusColor(order.status)}">${order.status}</span></td>
+                        <td>
+                            <button class="btn btn-sm btn-outline-primary" onclick="viewOrder('${order.orderNumber}')">查看</button>
+                            <button class="btn btn-sm btn-outline-secondary" onclick="editOrder('${order.orderNumber}')">编辑</button>
+                        </td>
+                    </tr>
+                `;
+                tableBody.innerHTML += row;
+            });
+        }
+        
+        function showNoData() {
+            document.getElementById('loadingState').style.display = 'none';
+            document.getElementById('orderTableContainer').style.display = 'none';
+            document.getElementById('noDataState').style.display = 'block';
+        }
+        
+        function formatDate(dateString) {
+            return new Date(dateString).toLocaleDateString('zh-CN');
+        }
+        
+        function getStatusColor(status) {
+            const statusColors = {
+                '已完成': 'success',
+                '处理中': 'primary',
+                '待处理': 'warning',
+                '已取消': 'danger'
+            };
+            return statusColors[status] || 'secondary';
+        }
+    </script>
+</body>
+</html> 

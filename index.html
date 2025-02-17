@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食品供应链系统 - 首页</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Swiper CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">轶昆鹏供应链系统</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">产品中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">特色服务</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 轮播图 -->
+    <div class="swiper hero-slider">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="images/slides/slide1.jpg" alt="供应链系统展示">
+                <div class="slide-content">
+                    <h2>轶昆鹏智能供应链管理系统</h2>
+                    <p>为食品行业提供全方位的供应链解决方案</p>
+                    <a href="products.html" class="btn btn-primary btn-lg">了解更多</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="images/slides/slide2.jpg" alt="产品展示">
+                <div class="slide-content">
+                    <h2>多维度产品体系</h2>
+                    <p>采购管理、库存优化、订单处理、物流追踪一体化解决方案</p>
+                    <a href="products.html" class="btn btn-primary btn-lg">查看详情</a>
+                </div>
+            </div>
+            <div class="swiper-slide">
+                <img src="images/slides/slide3.jpg" alt="系统功能">
+                <div class="slide-content">
+                    <h2>智能化管理平台</h2>
+                    <p>AI算法支持，区块链技术加持，打造智能供应链生态</p>
+                    <a href="features.html" class="btn btn-primary btn-lg">探索功能</a>
+                </div>
+            </div>
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+
+    <!-- 核心数据概览 -->
+    <section class="statistics py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">核心数据概览</h2>
+            <div class="row">
+                <div class="col-md-4 text-center">
+                    <div class="stat-item">
+                        <h3>10000+</h3>
+                        <p>日订单处理量</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="stat-item">
+                        <h3>99.9%</h3>
+                        <p>系统稳定性</p>
+                    </div>
+                </div>
+                <div class="col-md-4 text-center">
+                    <div class="stat-item">
+                        <h3>30%+</h3>
+                        <p>平均效率提升</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI 技术展示 -->
+    <section class="services-showcase py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">供应链解决方案</h2>
+            <div class="row">
+                <!-- 马士基合同物流 -->
+                <div class="col-md-4 mb-4">
+                    <div class="service-card animate__animated animate__fadeInUp" data-aos-delay="100">
+                        <div class="service-image">
+                            <img src="images/services/contract-logistics.jpg" alt="轶昆鹏科技合同物流" class="img-fluid">
+                        </div>
+                        <div class="service-content">
+                            <h3>轶昆鹏科技合同物流</h3>
+                            <p>通过我们的全国战略合储设施网络无缝管理您的端到端仓储及送需求。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 内陆运输服务 -->
+                <div class="col-md-4 mb-4">
+                    <div class="service-card animate__animated animate__fadeInUp">
+                        <div class="service-image">
+                            <img src="images/services/inland-transport.jpg" alt="内陆运输服务" class="img-fluid">
+                        </div>
+                        <div class="service-content">
+                            <h3>内陆运输服务</h3>
+                            <p>利用卡车、铁路或驳船，将集装箱货物从主要的船舶码头无缝运输到您指定的内陆地点。</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 拼箱运输（LCL） -->
+                <div class="col-md-4 mb-4">
+                    <div class="service-card animate__animated animate__fadeInUp" data-aos-delay="200">
+                        <div class="service-image">
+                            <img src="images/services/lcl-transport.jpg" alt="拼箱运输" class="img-fluid">
+                        </div>
+                        <div class="service-content">
+                            <h3>拼箱运输（LCL）</h3>
+                            <p>无论是运输小箱子还是托盘，无论海运、空运、陆运，我们的拼箱（LCL）货物运输解决方案都能确保货物的按时发货和交付，同时节省时间和成本。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能入口 -->
+    <section class="function-entries py-5">
+        <div class="container">
+            <h2 class="text-center mb-4">快速入口</h2>
+            <div class="row">
+                <!-- 用户管理 -->
+                <div class="col function-col">
+                    <div class="function-card" style="cursor: pointer;" onclick="location.href='user.html'">
+                        <div class="function-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>用户管理</h4>
+                        <p>注册/登录/信息维护</p>
+                    </div>
+                </div>
+                
+                <!-- 库存管理 -->
+                <div class="col function-col">
+                    <div class="function-card" style="cursor: pointer;" onclick="location.href='inventory.html'">
+                        <div class="function-icon">
+                            <i class="fas fa-warehouse"></i>
+                        </div>
+                        <h4>库存管理</h4>
+                        <p>实时监控/临期预警</p>
+                    </div>
+                </div>
+                
+                <!-- 订单处理 -->
+                <div class="col function-col">
+                    <div class="function-card" style="cursor: pointer;" onclick="location.href='orders.html'">
+                        <div class="function-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h4>订单处理</h4>
+                        <p>下单/跟踪/历史</p>
+                    </div>
+                </div>
+                
+                <!-- 智能分析 -->
+                <div class="col function-col">
+                    <div class="function-card" style="cursor: pointer;" onclick="location.href='analytics.html'">
+                        <div class="function-icon">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h4>智能分析</h4>
+                        <p>销售/库存/预测</p>
+                    </div>
+                </div>
+                
+                <!-- 报表生成 -->
+                <div class="col function-col">
+                    <div class="function-card" style="cursor: pointer;" onclick="location.href='reports.html'">
+                        <div class="function-icon">
+                            <i class="fas fa-print"></i>
+                        </div>
+                        <h4>报表生成</h4>
+                        <p>一键导出数据报表</p>
+                    </div>
+                </div>
+            </div>
+            <!-- 订单追踪入口 -->
+            <div class="order-tracking-entry mt-4">
+                <div class="tracking-card" onclick="location.href='order-tracking.html'">
+                    <div class="tracking-icon">
+                        <i class="fas fa-route"></i>
+                    </div>
+                    <div class="tracking-content">
+                        <h4>订单可视化追踪</h4>
+                        <p>实时查看订单状态 / 物流轨迹 / 温度监控</p>
+                    </div>
+                    <div class="tracking-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 解决方案优势 -->
+    <section class="solutions py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">解决方案优势</h2>
+            <div class="row">
+                <div class="col-md-3 mb-4">
+                    <div class="solution-item text-center">
+                        <div class="icon-wrapper mb-3">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h4>智能决策</h4>
+                        <p>AI算法支持，智能预测与分析</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="solution-item text-center">
+                        <div class="icon-wrapper mb-3">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>安全可靠</h4>
+                        <p>区块链技术保障数据安全</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="solution-item text-center">
+                        <div class="icon-wrapper mb-3">
+                            <i class="fas fa-sync"></i>
+                        </div>
+                        <h4>高效协同</h4>
+                        <p>多方协作，信息实时同步</p>
+                    </div>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <div class="solution-item text-center">
+                        <div class="icon-wrapper mb-3">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>数据驱动</h4>
+                        <p>全维度数据分析与展示</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部信息 -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5 class="footer-title">联系我们</h5>
+                    <div class="contact-info">
+                        <i class="fas fa-phone"></i>
+                        <span>185 1689 2578</span>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <span>18516892578@163.com</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">公司信息</h5>
+                    <div class="company-info">
+                        <p>北京轶昆鹏科技有限公司</p>
+                        <p>专注于食品供应链解决方案</p>
+                        <p>创新技术，智慧服务</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">关注我们</h5>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-weixin"></i></a>
+                        <a href="#"><i class="fab fa-weibo"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 北京轶昆鹏科技有限公司 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html> 

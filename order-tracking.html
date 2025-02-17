@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>订单可视化追踪 - 轶昆鹏供应链系统</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">轶昆鹏供应链系统</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">产品中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">特色服务</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 订单追踪查询 -->
+    <section class="tracking-search py-5">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h1 class="display-4">订单追踪</h1>
+                <p class="lead">实时查看订单状态与物流信息</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <div class="search-box">
+                        <input type="text" class="form-control form-control-lg" placeholder="请输入订单号">
+                        <button class="btn btn-primary btn-lg">查询</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 订单状态展示 -->
+    <section class="order-status py-5 bg-light">
+        <div class="container">
+            <div class="status-timeline">
+                <!-- 状态时间线将由 JavaScript 动态生成 -->
+            </div>
+            
+            <!-- 订单详情卡片 -->
+            <div class="order-details mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4>订单信息</h4>
+                        <div class="row mt-4">
+                            <div class="col-md-6">
+                                <p><strong>订单编号：</strong> ORDER2024012001</p>
+                                <p><strong>下单时间：</strong> 2024-01-20 10:30</p>
+                                <p><strong>预计送达：</strong> 2024-01-22</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p><strong>收货地址：</strong> 南京市建邺区</p>
+                                <p><strong>联系电话：</strong> 185****2578</p>
+                                <p><strong>订单状态：</strong> <span class="badge bg-primary">运输中</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 物流轨迹地图 -->
+            <div class="logistics-map mt-5">
+                <div class="card">
+                    <div class="card-body">
+                        <h4>物流轨迹</h4>
+                        <div id="map" style="height: 400px;">
+                            <!-- 地图将在这里显示 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部信息 -->
+    <footer>
+        <!-- ... 底部内容 ... -->
+    </footer>
+
+    <!-- JavaScript 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- 地图API -->
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode:'8d5e98d4f1526d55e1aa132e54672458'
+        }
+    </script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=8d5e98d4f1526d55e1aa132e54672458"></script>
+    <script src="js/tracking.js"></script>
+</body>
+</html> 

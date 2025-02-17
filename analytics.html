@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>食品供应链系统 - 智能分析</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">食品供应链系统</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">首页</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="products.html">产品中心</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="features.html">系统功能</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">关于我们</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">联系我们</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="report-hero py-5">
+        <div class="container">
+            <div class="text-center animate__animated animate__fadeIn">
+                <h1 class="display-4 mb-4">智能分析系统</h1>
+                <p class="lead mb-0">数据驱动决策，智能预测未来</p>
+                <div class="tech-line"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 分析方法说明 -->
+    <section class="analysis-method py-5">
+        <div class="container">
+            <div class="card mb-4">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">分析方法说明</h4>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-chart-line me-2"></i>销售预测依据</h5>
+                            <ul>
+                                <li>历史销售数据趋势分析</li>
+                                <li>季节性波动模式识别</li>
+                                <li>市场环境因素评估</li>
+                                <li>节假日销售规律分析</li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h5><i class="fas fa-boxes me-2"></i>库存建议依据</h5>
+                            <ul>
+                                <li>库存周转率分析</li>
+                                <li>产品保质期评估</li>
+                                <li>供应商交付周期</li>
+                                <li>安全库存水平计算</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 数据输入表单 -->
+    <section class="data-input py-5">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">数据分析参数设置</h4>
+                    <form id="analysisForm">
+                        <div class="row">
+                            <!-- 基础数据输入 -->
+                            <div class="col-md-6">
+                                <h5 class="mb-3">基础数据</h5>
+                                <div class="mb-3">
+                                    <label class="form-label">历史销售数据</label>
+                                    <input type="file" class="form-control" accept=".csv,.xlsx" required>
+                                    <small class="text-muted">支持CSV或Excel格式，包含月度销售额、产品类别等</small>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">库存周转数据</label>
+                                    <input type="file" class="form-control" accept=".csv,.xlsx" required>
+                                    <small class="text-muted">包含入库时间、库存量、出库频率等</small>
+                                </div>
+                            </div>
+                            
+                            <!-- 高级参数设置 -->
+                            <div class="col-md-6">
+                                <h5 class="mb-3">分析参数</h5>
+                                <div class="mb-3">
+                                    <label class="form-label">预测时间范围</label>
+                                    <select class="form-select">
+                                        <option value="1">未来1个月</option>
+                                        <option value="3">未来3个月</option>
+                                        <option value="6">未来6个月</option>
+                                        <option value="12">未来1年</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label">置信度水平</label>
+                                    <select class="form-select">
+                                        <option value="0.90">90%</option>
+                                        <option value="0.95">95%</option>
+                                        <option value="0.99">99%</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 分析因素选择 -->
+                        <div class="mt-4">
+                            <h5 class="mb-3">影响因素选择</h5>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" checked>
+                                        <label class="form-check-label">季节性因素</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" checked>
+                                        <label class="form-check-label">市场趋势</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" checked>
+                                        <label class="form-check-label">节假日影响</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="text-center mt-4">
+                            <button type="submit" class="btn btn-primary" id="analyzeBtn">
+                                <i class="fas fa-chart-line me-2"></i>开始分析
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI 预测分析 -->
+    <section class="ai-prediction py-5">
+        <div class="container">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title mb-4">AI 智能预测</h4>
+                    <!-- 预测结果占位符 -->
+                    <div id="predictionPlaceholder" class="text-center py-5">
+                        <i class="fas fa-robot fa-3x text-muted mb-3 d-block"></i>
+                        <h4 class="text-muted">请上传数据以获取AI预测分析</h4>
+                    </div>
+                    <!-- 预测结果内容 - 默认隐藏 -->
+                    <div id="predictionContent" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="prediction-item mb-4">
+                                    <h5><i class="fas fa-chart-line me-2"></i>销售预测</h5>
+                                    <p id="salesPrediction">--</p>
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" style="width: 0%"></div>
+                                    </div>
+                                </div>
+                                <div class="prediction-item">
+                                    <h5><i class="fas fa-boxes me-2"></i>库存建议</h5>
+                                    <p id="stockSuggestion">--</p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="prediction-item mb-4">
+                                    <h5><i class="fas fa-user-friends me-2"></i>客户分析</h5>
+                                    <p id="customerAnalysis">--</p>
+                                </div>
+                                <div class="prediction-item">
+                                    <h5><i class="fas fa-route me-2"></i>配送优化</h5>
+                                    <p id="deliveryOptimization">--</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关键指标 -->
+    <section class="analytics-kpi py-5">
+        <div class="container">
+            <div id="kpiContainer" style="display: none;">
+                <div class="row">
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-item">
+                            <h3 id="salesAmount">--</h3>
+                            <p>本月销售额</p>
+                            <small id="salesTrend" class="text-muted">等待分析</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-item">
+                            <h3 id="turnoverRate">--</h3>
+                            <p>库存周转率</p>
+                            <small id="turnoverTrend" class="text-muted">等待分析</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-item">
+                            <h3>98.5%</h3>
+                            <p>订单履约率</p>
+                            <small class="text-success"><i class="fas fa-arrow-up"></i> 1.5%</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-4">
+                        <div class="stat-item">
+                            <h3>1.2D</h3>
+                            <p>平均交付时间</p>
+                            <small class="text-danger"><i class="fas fa-arrow-down"></i> 0.3D</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="kpiPlaceholder" class="text-center py-5">
+                <i class="fas fa-chart-bar fa-3x text-muted mb-3"></i>
+                <h4 class="text-muted">请上传数据开始分析</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- 图表分析 -->
+    <section class="analytics-charts py-5 bg-light">
+        <div class="container">
+            <!-- 图表占位符 -->
+            <div id="chartsPlaceholder" class="text-center py-5">
+                <i class="fas fa-chart-pie fa-3x text-muted mb-3"></i>
+                <h4 class="text-muted">请上传数据以查看详细分析图表</h4>
+            </div>
+            <!-- 图表内容 - 默认隐藏 -->
+            <div id="chartsContent" style="display: none;">
+                <div class="row">
+                    <!-- 销售趋势图 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">销售趋势分析</h4>
+                                <canvas id="salesChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 品类分布图 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">品类销售分布</h4>
+                                <canvas id="categoryChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row mt-4">
+                    <!-- 库存预警 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">库存预警分析</h4>
+                                <canvas id="inventoryChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 订单状态 -->
+                    <div class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h4 class="card-title">订单状态分布</h4>
+                                <canvas id="orderStatusChart"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部信息 -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>联系我们</h5>
+                    <p>电话：123-456-7890</p>
+                    <p>邮箱：info@example.com</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>地址</h5>
+                    <p>中国上海市浦东新区xxx路xxx号</p>
+                </div>
+                <div class="col-md-4">
+                    <h5>关注我们</h5>
+                    <div class="social-links">
+                        <!-- 社交媒体链接 -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // 销售趋势图
+        new Chart(document.getElementById('salesChart'), {
+            type: 'line',
+            data: {
+                labels: ['1月', '2月', '3月', '4月', '5月', '6月'],
+                datasets: [{
+                    label: '销售额（万元）',
+                    data: [180, 220, 250, 240, 280, 300],
+                    borderColor: '#007bff',
+                    tension: 0.1
+                }]
+            }
+        });
+
+        // 品类分布图
+        new Chart(document.getElementById('categoryChart'), {
+            type: 'pie',
+            data: {
+                labels: ['粮油', '调味品', '干货', '饮品', '其他'],
+                datasets: [{
+                    data: [35, 25, 20, 15, 5],
+                    backgroundColor: [
+                        '#007bff',
+                        '#28a745',
+                        '#ffc107',
+                        '#dc3545',
+                        '#6c757d'
+                    ]
+                }]
+            }
+        });
+
+        // 库存预警图
+        new Chart(document.getElementById('inventoryChart'), {
+            type: 'bar',
+            data: {
+                labels: ['充足', '正常', '偏低', '预警'],
+                datasets: [{
+                    label: '商品数量',
+                    data: [45, 30, 15, 10],
+                    backgroundColor: [
+                        '#28a745',
+                        '#007bff',
+                        '#ffc107',
+                        '#dc3545'
+                    ]
+                }]
+            }
+        });
+
+        // 订单状态图
+        new Chart(document.getElementById('orderStatusChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['已完成', '处理中', '待确认', '异常'],
+                datasets: [{
+                    data: [65, 20, 10, 5],
+                    backgroundColor: [
+                        '#28a745',
+                        '#007bff',
+                        '#ffc107',
+                        '#dc3545'
+                    ]
+                }]
+            }
+        });
+
+        document.getElementById('analysisForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // 显示加载状态
+            const analyzeBtn = document.getElementById('analyzeBtn');
+            analyzeBtn.disabled = true;
+            analyzeBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-2"></span>分析中...';
+            
+            // 模拟数据处理和分析过程
+            setTimeout(() => {
+                // 显示所有分析结果
+                document.getElementById('predictionPlaceholder').style.display = 'none';
+                document.getElementById('predictionContent').style.display = 'block';
+                document.getElementById('kpiPlaceholder').style.display = 'none';
+                document.getElementById('kpiContainer').style.display = 'block';
+                document.getElementById('chartsPlaceholder').style.display = 'none';
+                document.getElementById('chartsContent').style.display = 'block';
+                
+                // 更新预测结果
+                updatePredictions({
+                    sales: '下月预计销售额：¥3.2M（增长14%）',
+                    stock: '建议补货：大米、食用油\n建议降库存：调味品',
+                    customer: '重点客户续约预警：3家\n潜在客户推荐：5家',
+                    delivery: '建议优化路线：华东区域\n预计节省成本：12%'
+                });
+                
+                // 更新关键指标
+                updateKPIs({
+                    sales: {
+                        amount: '¥2.8M',
+                        trend: 12.5,
+                        direction: 'up'
+                    },
+                    turnover: {
+                        rate: '92%',
+                        trend: 3.2,
+                        direction: 'up'
+                    },
+                    // ... 其他指标数据 ...
+                });
+                
+                // 恢复按钮状态
+                analyzeBtn.disabled = false;
+                analyzeBtn.innerHTML = '<i class="fas fa-chart-line me-2"></i>开始分析';
+            }, 2000);
+        });
+        
+        function updateKPIs(data) {
+            // 更新销售额
+            document.getElementById('salesAmount').textContent = data.sales.amount;
+            document.getElementById('salesTrend').className = `text-${data.sales.direction === 'up' ? 'success' : 'danger'}`;
+            document.getElementById('salesTrend').innerHTML = 
+                `<i class="fas fa-arrow-${data.sales.direction}"></i> ${data.sales.trend}%`;
+            
+            // 更新周转率
+            document.getElementById('turnoverRate').textContent = data.turnover.rate;
+            document.getElementById('turnoverTrend').className = `text-${data.turnover.direction === 'up' ? 'success' : 'danger'}`;
+            document.getElementById('turnoverTrend').innerHTML = 
+                `<i class="fas fa-arrow-${data.turnover.direction}"></i> ${data.turnover.trend}%`;
+            
+            // ... 更新其他指标 ...
+        }
+        
+        function updatePredictions(data) {
+            document.getElementById('salesPrediction').textContent = data.sales;
+            document.getElementById('stockSuggestion').innerHTML = data.stock.replace('\n', '<br>');
+            document.getElementById('customerAnalysis').innerHTML = data.customer.replace('\n', '<br>');
+            document.getElementById('deliveryOptimization').innerHTML = data.delivery.replace('\n', '<br>');
+        }
+    </script>
+</body>
+</html> 
